@@ -24,4 +24,5 @@ EXPOSE 7070
 
 VOLUME /data/conf
 
-CMD ["./gateway", "-conf", "/data/conf/config.yaml"]
+ENTRYPOINT [ "./gateway" ]
+CMD ["-conf", "/data/conf/config.yaml"]

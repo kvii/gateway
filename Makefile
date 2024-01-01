@@ -15,3 +15,7 @@ push-github:
 .PHONY: push
 push:
 	docker buildx build --platform linux/amd64,linux/arm64 --push -t kvii2202/gateway:$(VERSION) .
+
+.PHONY: build
+build:
+	docker build -t gateway:$(VERSION) .
