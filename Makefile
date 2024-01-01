@@ -8,6 +8,10 @@ api:
  	       --go_out=paths=source_relative:./api \
 	       $(API_PROTO_FILES)
 
+.PHONY: push-github
+push-github:
+	docker buildx build --platform linux/amd64,linux/arm64 --push -t ghcr.io/kvii/gateway:$(VERSION) .
+
 .PHONY: push
 push:
-	docker buildx build --platform linux/amd64,linux/arm64 --push -t ghcr.io/kvii/gateway:$(VERSION) .
+	docker buildx build --platform linux/amd64,linux/arm64 --push -t kvii2202/gateway:$(VERSION) .
